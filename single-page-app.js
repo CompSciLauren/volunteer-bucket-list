@@ -1,4 +1,9 @@
 $(document).ready(function() {
+  /*$("form1").on("submit", function(e) {
+    console.log("wow");
+    alert("dasdasdas");
+    e.preventDefault();
+  });*/
   $(".backButton").hide();
 
   $(".backButton").click(function() {
