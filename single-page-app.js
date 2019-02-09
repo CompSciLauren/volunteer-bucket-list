@@ -2,14 +2,6 @@ $(document).ready(function() {
   $(".backButton").hide();
 
   $(".backButton").click(function() {
-    $(".backButton").hide();
-    $(".searchStateAndLocationUI").css("visibility", "visible");
-    $(".edtechnology").show();
-    $(".environmental").show();
-    $(".homeless").show();
-    $(".refugees").show();
-    $(".childrenAndYoungPeople").show();
-    $(".elderly").show();
     location.reload();
   });
 
