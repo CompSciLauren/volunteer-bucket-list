@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $(".backButton").hide();
+  $(".homelessContent").hide();
 
   $(".backButton").click(function() {
     $(".backButton").hide();
@@ -33,10 +34,12 @@ $(document).ready(function() {
     $(".backButton").show();
     $(".edtechnology").hide();
     $(".environmental").hide();
-
     $(".refugees").hide();
     $(".childrenAndYoungPeople").hide();
     $(".elderly").hide();
+
+    $(".controls").val("homeless shelters");
+    $(".homelessContent").show();
   });
 
   $(".refugees").click(function() {
