@@ -3,12 +3,14 @@ $(document).ready(function() {
 
   $(".backButton").click(function() {
     $(".backButton").hide();
+    $(".searchStateAndLocationUI").css("visibility", "visible");
     $(".edtechnology").show();
     $(".environmental").show();
     $(".homeless").show();
     $(".refugees").show();
     $(".childrenAndYoungPeople").show();
     $(".elderly").show();
+    location.reload();
   });
 
   $(".edtechnology").click(function() {
@@ -30,6 +32,7 @@ $(document).ready(function() {
   });
 
   $(".homeless").click(function() {
+    $(".searchStateAndLocationUI").css("visibility", "hidden");
     $(".backButton").show();
     $(".edtechnology").hide();
     $(".environmental").hide();
