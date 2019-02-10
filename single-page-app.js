@@ -19,7 +19,9 @@ $(document).ready(function() {
     $googlemap.googlemap("open");
   });
 
+
   $("#favoritesScreenOptions").hide();
+
   $("#settingsScreenOptions").hide();
 
   $("#favoritesScreenOptions").click(function() {
