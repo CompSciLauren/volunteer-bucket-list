@@ -50,6 +50,7 @@ $(document).ready(function() {
   }
 
   function loadHomelessScreen() {
+    alert("entered!");
     $(".searchStateAndLocationUI").css("visibility", "hidden");
     $(".backButton").show();
     $(".edtechnology").hide();

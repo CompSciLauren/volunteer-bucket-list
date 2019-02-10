@@ -103,12 +103,29 @@
                 return;
               }
 
-              $(".backButton").show();
-              $(".edtechnology").hide();
-              $(".environmental").hide();
-              $(".refugees").hide();
-              $(".childrenAndYoungPeople").hide();
-              $(".elderly").hide();
+              let category = $(".controls").val();
+              switch (category) {
+                case "ed technology":
+                  loadEdtechnologyScreen();
+                  break;
+                case "environmental":
+                  loadEnvironmentalScreen();
+                  break;
+                case "homeless":
+                  loadHomelessScreen();
+                  break;
+                case "refugees":
+                  loadRefugeesScreen();
+                  break;
+                case "children and young people":
+                  loadChildrenAndYoungPeopleScreen();
+                  break;
+                case "elderly":
+                  loadElderlyScreen();
+                  break;
+                default:
+                  alert("wrong!");
+              }
 
               // Clear out the old markers.
               markers.forEach(function(marker) {
