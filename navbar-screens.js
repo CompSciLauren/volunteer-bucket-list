@@ -13,17 +13,10 @@ $(document).ready(function() {
 });
 
 function loadHomeScreen() {
-  $(".backButton").show();
-  $(".foodPantries").hide();
-  $(".environmental").hide();
-  $(".homeless").hide();
-  $(".refugees").hide();
-  $(".elderly").hide();
-  $(".animalShelters").hide();
+  location.reload();
 }
 
 function loadFavoritesScreen() {
-  $(".backButton").show();
   $(".foodPantries").hide();
   $(".environmental").hide();
   $(".homeless").hide();
@@ -33,7 +26,6 @@ function loadFavoritesScreen() {
 }
 
 function loadSettingsScreen() {
-  $(".backButton").show();
   $(".foodPantries").hide();
   $(".environmental").hide();
   $(".homeless").hide();
