@@ -41,7 +41,7 @@ $(document).ready(function() {
     loadRefugeesScreen();
   });
 
-  $(".animalshelters").click(function() {
+  $(".animalShelters").click(function() {
     loadAnimalSheltersScreen();
   });
 

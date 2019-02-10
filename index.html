@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="single-page-app.js"></script>
+    <script src="navbar-screens.js"></script>
   </head>
   <body>
     <div class="header">
@@ -156,12 +157,6 @@
                 // Test to output the names of results
                 var ul = document.getElementById("ul"); //ul
                 var li = document.createElement("li"); //li
-                //li.setAttribute("class", "gotoMaps");
-
-                /*li.addClass("gotoMaps");
-                li.addEventListener("click", function() {
-                  
-                });*/
 
                 var createA = document.createElement("a");
                 createA.setAttribute("href", "./googlemap.html");
@@ -179,7 +174,6 @@
                 }
                 li.appendChild(checkbox);
                 li.appendChild(createA);
-                //li.appendChild(document.createTextNode(checkbox.name));
                 ul.appendChild(li);
                 ul.appendChild(createA);
 
@@ -275,10 +269,18 @@
       defer
     ></script>
     <!--footer-->
-    <div class="footer">
-      <p>
-        Home | My Favorites | Settings
-      </p>
+    <div class="col-3 col-s-3 footer">
+      <ul>
+        <li id="footerHome" class="homeScreen">
+          Home
+        </li>
+        <li id="footerFavorites" class="favoritesScreen">
+          My Favorites
+        </li>
+        <li id="footerSettings" class="settingsScreen">
+          Settings
+        </li>
+      </ul>
     </div>
   </body>
 </html>
