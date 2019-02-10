@@ -66,16 +66,10 @@
       // Get a reference to the database service
       var database = firebase.database();
 
-      /*var ref = firebase.database().ref("coords");
-      ref.on("value", function(snapshot) {
-        var childData = snapshot.val();
-        var key = Object.keys(childData)[0]; //this will return 1st key.
-        console.log(childData[key].id);
-      });*/
-
       function initMap() {
         var fLatitude;
         var fLongitude;
+        // retrieves the coords stored in fireStore
         firebase
           .database()
           .ref("coords/")
