@@ -147,6 +147,32 @@
                   checkbox.value = i;
                   //checkbox.name = opportunities[i].name;
                   btn.innerHTML = opportunities[i].name;
+
+                  /*var location = new google.maps.LatLng(
+                    opportunities[i].latitude,
+                    opportunities[i].longitude
+                  ); // turn coordinates into an object
+                  geocoder.geocode({ latLng: location }, function(
+                    results,
+                    status
+                  ) {
+                    var add;
+                    if (status == google.maps.GeocoderStatus.OK) {
+                      // if geocode success
+                      add = results[0].formatted_address; // if address found, pass to processing function
+                    }
+                    document.write(add);
+                  });*/
+                  
+                  /*content.type = "checkbox";
+                  content.name = opportunities[i].name;
+                  //content.value = "value";
+                  content.id = "id";*/
+                  /*label.htmlFor = content.id;
+                  label.appendChild(document.write(opportunities[i].name));*/
+                  /*content.style.color = "red";
+                  content.innerHTML = opportunities[i].name;
+                  container.appendChild(content);*/
                 }
                 li.appendChild(checkbox);
                 li.appendChild(btn);
@@ -155,6 +181,18 @@
                 ul.appendChild(btn);
 
                 collectCheckedItems(checkbox);
+
+                //li.appendChild(checkbox);
+
+                /*container.appendChild(content);
+                container.appendChild(label);*/
+
+                /*if (place.geometry.viewport) {
+                  // Only geocodes have viewport.
+                  bounds.union(place.geometry.viewport);
+                } else {
+                  bounds.extend(place.geometry.location);
+                }*/
               });
 
               console.log(opportunities);
