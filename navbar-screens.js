@@ -16,10 +16,16 @@ function switchDayNightMode() {
   if (nightMode) {
     $("body").css("background-color", "#221853");
     $("label").css("color", "white");
+    $("th").css("color", "white");
+    $("tr").css("color", "white");
+
     nightMode = false;
   } else {
     $("body").css("background-color", "white");
     $("label").css("color", "black");
+    $("th").css("color", "black");
+    $("tr").css("color", "black");
+
     nightMode = true;
   }
 }
