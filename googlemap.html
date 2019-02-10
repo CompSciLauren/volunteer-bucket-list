@@ -48,22 +48,61 @@
   </head>
   <body>
     <div id="floating-panel">
-      <input id="latlng" type="text" value="40.714224,-73.961452" />
-      <input id="submit" type="button" value="Reverse Geocode" />
+      <input id="latlng" type="text" value="" />
+      <input id="submit" type="button" value="Locate" />
     </div>
     <div id="map"></div>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
     <script>
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 8,
-          center: { lat: 40.731, lng: -73.997 }
-        });
-        var geocoder = new google.maps.Geocoder();
-        var infowindow = new google.maps.InfoWindow();
+      // Setting up the Firebase database server
+      var config = {
+        apiKey: "AIzaSyA2OBmgrJhF3TXTuArFW53PJZnT3_hQtpM",
+        authDomain: "volunteerbucketl-1549684675882.firebaseapp.com",
+        databaseURL: "https://volunteerbucketl-1549684675882.firebaseio.com/",
+        storageBucket: "bucket.appspot.com"
+      };
+      firebase.initializeApp(config);
 
-        document.getElementById("submit").addEventListener("click", function() {
-          geocodeLatLng(geocoder, map, infowindow);
-        });
+      // Get a reference to the database service
+      var database = firebase.database();
+
+      /*var ref = firebase.database().ref("coords");
+      ref.on("value", function(snapshot) {
+        var childData = snapshot.val();
+        var key = Object.keys(childData)[0]; //this will return 1st key.
+        console.log(childData[key].id);
+      });*/
+
+      function initMap() {
+        var fLatitude;
+        var fLongitude;
+        firebase
+          .database()
+          .ref("coords/")
+          .on("value", function(snapshot) {
+            fLatitude = snapshot.val().latitude;
+            fLongitude = snapshot.val().longitude;
+            document.getElementById("latlng").value =
+              fLatitude + "," + fLongitude;
+            console.log(fLatitude);
+            console.log(fLongitude);
+
+            var map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 8,
+              center: {
+                lat: fLatitude,
+                lng: fLongitude
+              }
+            });
+            var geocoder = new google.maps.Geocoder();
+            var infowindow = new google.maps.InfoWindow();
+
+            document
+              .getElementById("submit")
+              .addEventListener("click", function() {
+                geocodeLatLng(geocoder, map, infowindow);
+              });
+          });
       }
 
       function geocodeLatLng(geocoder, map, infowindow) {

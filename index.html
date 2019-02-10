@@ -158,8 +158,11 @@
                 var ul = document.getElementById("ul"); //ul
                 var li = document.createElement("li"); //li
 
-                var createA = document.createElement("a");
+                /*var createA = document.createElement("a");
                 createA.setAttribute("href", "./googlemap.html");
+                createA.setAttribute("class", "addressClick");*/
+                var transferBtn = document.createElement("button");
+                transferBtn.setAttribute("onclick", "gotoMap(this)");
 
                 var checkbox = document.createElement("input");
                 checkbox.setAttribute("class", "checkers");
@@ -170,12 +173,15 @@
                   checkbox.type = "checkbox";
                   checkbox.value = i;
                   checkbox.name = opportunities[i].name;
-                  createA.innerText = opportunities[i].name;
+                  //createA.name = opportunities[i].name;
+                  transferBtn.name = opportunities[i].name;
+                  transferBtn.innerHTML = opportunities[i].name;
+                  //createA.innerText = opportunities[i].name;
                 }
                 li.appendChild(checkbox);
-                li.appendChild(createA);
+                li.appendChild(transferBtn);
                 ul.appendChild(li);
-                ul.appendChild(createA);
+                ul.appendChild(transferBtn);
 
                 console.log(checkbox);
 
@@ -287,6 +293,47 @@
         favoriteId++;
         //console.log(address);
         //return address;
+      }
+
+      // passing the coords to googlemap
+      $(".addressClick").click(function() {
+        console.log($(this).attr("name"));
+        for (let i = 0; i < opportunities.length; i++) {
+          if ($(this).attr("name") == opportunities[i].name) {
+            /*window.localStorage.setItem("latitude", opportunities[i].latitude);
+            window.localStorage.setItem(
+              "longitude",
+              opportunities[i].longitude
+            );*/
+            firebase
+              .database()
+              .ref("coords/")
+              .set({
+                latitude: opportunities[i].latitude,
+                longitude: opportunities[i].longitude
+              });
+          }
+        }
+      });
+
+      function gotoMap(clicked_object) {
+        for (let i = 0; i < opportunities.length; i++) {
+          if (clicked_object.getAttribute("name") == opportunities[i].name) {
+            /*window.localStorage.setItem("latitude", opportunities[i].latitude);
+            window.localStorage.setItem(
+              "longitude",
+              opportunities[i].longitude
+            );*/
+            firebase
+              .database()
+              .ref("coords/")
+              .set({
+                latitude: opportunities[i].latitude,
+                longitude: opportunities[i].longitude
+              });
+          }
+        }
+        window.open("googlemap.html");
       }
 
       //function compareThem() {}
