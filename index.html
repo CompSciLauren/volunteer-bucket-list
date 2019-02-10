@@ -24,12 +24,12 @@
         <nav>
           <ul>
             <button class="backButton">Back</button>
-            <li class="edtechnology">Ed Technology</li>
+            <li class="foodPantries">Food Pantries</li>
             <li class="environmental">Environmental</li>
             <li class="homeless">Homeless</li>
             <li class="refugees">Refugees</li>
-            <li class="childrenAndYoungPeople">
-              Children and Young People
+            <li class="animalShelters">
+              Animal Shelters
             </li>
             <li class="elderly">Elderly</li>
           </ul>
@@ -123,13 +123,6 @@
                 return;
               }
 
-              $(".backButton").show();
-              $(".edtechnology").hide();
-              $(".environmental").hide();
-              $(".refugees").hide();
-              $(".childrenAndYoungPeople").hide();
-              $(".elderly").hide();
-
               // Clear out the old markers.
               markers.forEach(function(marker) {
                 marker.setMap(null);
@@ -190,7 +183,33 @@
                 ul.appendChild(li);
                 ul.appendChild(createA);
 
-                //console.log(checkbox);
+                console.log(checkbox);
+
+                let category = $(".controls").val();
+                switch (category) {
+                  case "food pantries":
+                    loadFoodPantriesScreen();
+                    break;
+                  case "environmental":
+                    loadEnvironmentalScreen();
+                    break;
+                  case "homeless":
+                    loadHomelessScreen();
+                    break;
+                  case "refugees":
+                    loadRefugeesScreen();
+                    break;
+                  case "animal shelters":
+                    loadAnimalSheltersScreen();
+                    break;
+                  case "elderly":
+                    loadElderlyScreen();
+                    break;
+                  default:
+                    alert(
+                      "Invalid input, please type a category name listed above, using lower-case letters only with the same spacing as seen above."
+                    ); // this should always pop-up if it's not one of the above cases, but sometimes it doesn't send an alert when an incorrect input is given. It also spams the alert numerous times.
+                }
               });
 
               var btn1 = document.createElement("button");
