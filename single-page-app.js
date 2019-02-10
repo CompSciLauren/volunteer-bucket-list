@@ -19,17 +19,14 @@ $(document).ready(function() {
     $googlemap.googlemap("open");
   });
 
-  // passing the coords to googlemap
-  $('a[href="./googlemap.html"]').click(function() {
-    for (let i = 0; i < opportunities.length; i++) {
-      if (this.name == opportunities[i].name) {
-        localStorage.setItem("latitude", opportunities[i].latitude);
-        localStorage.setItem("longitude", opportunities[i].longitude);
-      }
-    }
-  });
+
+  $("#favoritesScreenOptions").hide();
 
   $("#settingsScreenOptions").hide();
+
+  $("#favoritesScreenOptions").click(function() {
+    loadfavoritesScreenOptions();
+  });
 
   $("#settingsScreenOptions").click(function() {
     loadSettingsScreenOptions();
