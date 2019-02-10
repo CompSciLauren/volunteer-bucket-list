@@ -41,12 +41,36 @@ html {
   background-color: #0099cc;
 }
 
-.footer {
+.footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer li {
+  padding: 8px;
+  margin-bottom: 7px;
   background-color: #0099cc;
   color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  width: 33%;
   text-align: center;
-  font-size: 12px;
-  padding: 15px;
+  padding: 20px;
+}
+
+.footer li:hover {
+  background-color: #0099cccc;
+}
+
+#footerHome {
+  float: left;
+}
+#footerFavorites {
+  float: left;
+}
+
+#footerSettings {
+  float: left;
 }
 
 /* For mobile phones: */
