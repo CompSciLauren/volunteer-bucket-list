@@ -212,15 +212,11 @@
                 }
               });
 
+              var divC = document.getElementById("container");
               var btn1 = document.createElement("button");
-              btn1.innerHTML = "PRESS Me!";
+              btn1.innerHTML = "Add to Favorites";
               btn1.setAttribute("onclick", "runCheckers()");
-              document.body.appendChild(btn1);
-
-              var btn2 = document.createElement("button");
-              btn2.innerHTML = "Are you sure?";
-              btn2.setAttribute("onclick", "compareThem()");
-              document.body.appendChild(btn2);
+              divC.appendChild(btn1);
 
               console.log(opportunities);
             });
