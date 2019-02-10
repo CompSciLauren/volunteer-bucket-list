@@ -6,6 +6,26 @@ $(document).ready(function() {
   });*/
   $(".backButton").hide();
 
+  $(".gotoMaps").click(function() {
+    var page = "./googlemap.html";
+    alert("test");
+
+    var $googlemap = $("<div></div>")
+      .html(
+        '<iframe style="border: 0px; " src="' +
+          page +
+          '" width="100%" height="100%"></iframe>'
+      )
+      .googlemap({
+        autoOpen: false,
+        modal: true,
+        height: 625,
+        width: 500,
+        title: "Some title"
+      });
+    $googlemap.googlemap("open");
+  });
+
   $(".backButton").click(function() {
     location.reload();
   });
