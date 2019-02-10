@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+tr {
+  background-color: lightblue;
+  text-align: center;
+  height: 125px;
+}
+
 .row::after {
   content: "";
   clear: both;
