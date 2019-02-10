@@ -14,6 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="single-page-app.js"></script>
     <script src="navbar-screens.js"></script>
+    <script src="favorites-cards.js"></script>
   </head>
   <body>
     <div class="header">
@@ -39,7 +40,7 @@
 
     <!--Below this is the functionality for the Search Bar stuff-->
     <div class="searchStateAndLocationUI">
-      <label for="initialAddress">Search State:</label>
+      <label for="initialAddress">Search City:</label>
       <input type="text" id="addressState" size="15" />
       <button onclick="initAutocomplete()">Confirm</button>
       <input
@@ -338,8 +339,10 @@
             content += "<tr>";
             content +=
               "<td>" +
+              "<h2>" +
               childData.name +
               "<input type='checkbox' class='toDelete' name='childData.name'>" +
+              "</h2>" +
               "</td>";
             //content += "<td>" + childData.address + "</td>";
             content += "</tr>";
