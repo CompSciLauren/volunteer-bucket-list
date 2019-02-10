@@ -239,15 +239,23 @@
                 console.log(opportunities[i].name);
                 console.log(opportunities[i].latitude);
                 console.log(opportunities[i].longitude);
+
+                coordsToAddress(
+                  opportunities[i].latitude,
+                  opportunities[i].longitude,
+                  opportunities[i].name
+                );
                 //var userId = firebase.auth().currentUser.uid;
-                firebase
+                /*firebase
                   .database()
                   .ref("favorites/" + favoriteId)
                   .set({
-                    latitude: opportunities[i].latitude,
-                    longitude: opportunities[i].longitude,
-                    name: opportunities[i].name
-                  });
+                    name: opportunities[i].name,
+                    address: coordsToAddress(
+                      opportunities[i].latitude,
+                      opportunities[i].longitude
+                    )
+                  });*/
               }
               break;
             }
@@ -255,10 +263,30 @@
           }
         }
 
-        favoriteId++;
-
         console.log(checkedNames);
         console.log(checkedValues);
+      }
+
+      function coordsToAddress(lat, lng, nameI) {
+        var geocoder = new google.maps.Geocoder(); // create a geocoder object
+        var location = new google.maps.LatLng(lat, lng); // turn coordinates into an object
+        geocoder.geocode({ latLng: location }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            var addr = results[0].formatted_address;
+            console.log(results[0].formatted_address);
+            firebase
+              .database()
+              .ref("favorites/" + favoriteId)
+              .set({
+                name: nameI,
+                address: addr
+              });
+          }
+        });
+
+        favoriteId++;
+        //console.log(address);
+        //return address;
       }
 
       //function compareThem() {}
