@@ -14,10 +14,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="single-page-app.js"></script>
     <script src="navbar-screens.js"></script>
+    <script src="favorites-cards.js"></script>
   </head>
   <body>
     <div class="header">
       <h1>Volunteer Bucket List</h1>
+      <h2>temporary</h2>
     </div>
 
     <div class="row">
@@ -39,7 +41,7 @@
 
     <!--Below this is the functionality for the Search Bar stuff-->
     <div class="searchStateAndLocationUI">
-      <label for="initialAddress">Search State:</label>
+      <label for="initialAddress">Search City:</label>
       <input type="text" id="addressState" size="15" />
       <button onclick="initAutocomplete()">Confirm</button>
       <input
@@ -310,12 +312,7 @@
     <div id="favoritesScreenOptions">
       <div id="floating-panel"></div>
       <div id="map"></div>
-      <table style="width:100%" id="ex-table">
-        <tr id="tr">
-          <th>Name</th>
-          <th>Address</th>
-        </tr>
-      </table>
+      <table style="width:100%" id="ex-table"></table>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
@@ -351,7 +348,7 @@
               childData.name +
               "<input type='checkbox' class='toDelete' name='childData.name'>" +
               "</td>";
-            content += "<td>" + childData.address + "</td>";
+            //content += "<td>" + childData.address + "</td>";
             content += "</tr>";
           });
           $("#ex-table").append(content);
