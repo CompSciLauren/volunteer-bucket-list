@@ -136,6 +136,15 @@
                 // Test to output the names of results
                 var ul = document.getElementById("ul"); //ul
                 var li = document.createElement("li"); //li
+                //li.setAttribute("class", "gotoMaps");
+
+                /*li.addClass("gotoMaps");
+                li.addEventListener("click", function() {
+                  
+                });*/
+
+                var createA = document.createElement("a");
+                createA.setAttribute("href", "./googlemap.html");
 
                 var checkbox = document.createElement("input");
                 var text = document.getElementById("container");
@@ -143,11 +152,15 @@
                 for (let i = 0; i < opportunities.length; i++) {
                   checkbox.type = "checkbox";
                   checkbox.value = i;
-                  checkbox.name = opportunities[i].name;
+                  //checkbox.name = opportunities[i].name;
+                  createA.innerText = opportunities[i].name;
                 }
                 li.appendChild(checkbox);
-                li.appendChild(document.createTextNode(checkbox.name));
+                li.appendChild(createA);
+                //li.appendChild(document.createTextNode(checkbox.name));
                 ul.appendChild(li);
+                ul.appendChild(createA);
+                console.log(checkbox);
 
                 let category = $(".controls").val();
                 switch (category) {
