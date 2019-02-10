@@ -7,7 +7,13 @@ $(document).ready(function() {
   $(".backButton").hide();
 
   $(".backButton").click(function() {
-    location.reload();
+    $(".backButton").hide();
+    $(".edtechnology").show();
+    $(".environmental").show();
+    $(".homeless").show();
+    $(".refugees").show();
+    $(".childrenAndYoungPeople").show();
+    $(".elderly").show();
   });
 
   $(".edtechnology").click(function() {
@@ -29,7 +35,6 @@ $(document).ready(function() {
   });
 
   $(".homeless").click(function() {
-    $(".searchStateAndLocationUI").css("visibility", "hidden");
     $(".backButton").show();
     $(".edtechnology").hide();
     $(".environmental").hide();
