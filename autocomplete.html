@@ -95,7 +95,7 @@
     <label for="initialAddress">Search State:</label>
     <input type="text" id="addressState" size="15" />
     <button onclick="initAutocomplete()">CONFIRM</button>
-    <button>Collect</button>
+    <button id="collect-checks">Collect</button>
     <!---<form id="form1">
       <input
         id="pac-input"
@@ -224,6 +224,8 @@
 
                 var checkbox = document.createElement("input");
                 var btn = document.createElement("button");
+
+                // sends user to google map for the buttons
                 btn.setAttribute('onclick', "window.open('googlemap.html')");
                 var text = document.getElementById("container");
 
@@ -239,7 +241,11 @@
                 ul.appendChild(li);
                 ul.appendChild(btn);
 
-                collectCheckedItems(checkbox);
+                var collectItems = document.createElement("button");
+                //collectItems.setAttribute('onclick', "collectCheckedItems(checkbox)");
+                collectItems.onclick = collectCheckedItems(checkbox);
+
+                //collectCheckedItems(checkbox);
 
               });
               //map.fitBounds(bounds);
@@ -270,6 +276,7 @@
           }
         }
         // Return the array if it is non-empty, or null
+        console.log(checkboxesChecked);
         return checkboxesChecked.length > 0 ? checkboxesChecked : null;
       }
     </script>
