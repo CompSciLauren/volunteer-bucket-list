@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  $(".backButton").hide();
-
   $(".gotoMaps").click(function() {
     var page = "./googlemap.html";
     alert("test");
@@ -21,8 +19,10 @@ $(document).ready(function() {
     $googlemap.googlemap("open");
   });
 
-  $(".backButton").click(function() {
-    location.reload();
+  $("#settingsScreenOptions").hide();
+
+  $("#settingsScreenOptions").click(function() {
+    loadSettingsScreenOptions();
   });
 
   $(".foodPantries").click(function() {
@@ -51,7 +51,6 @@ $(document).ready(function() {
 });
 
 function loadFoodPantriesScreen() {
-  $(".backButton").show();
   $(".environmental").hide();
   $(".homeless").hide();
   $(".refugees").hide();
@@ -60,7 +59,6 @@ function loadFoodPantriesScreen() {
 }
 
 function loadEnvironmentalScreen() {
-  $(".backButton").show();
   $(".foodPantries").hide();
   $(".homeless").hide();
   $(".refugees").hide();
@@ -69,7 +67,6 @@ function loadEnvironmentalScreen() {
 }
 
 function loadHomelessScreen() {
-  $(".backButton").show();
   $(".foodPantries").hide();
   $(".environmental").hide();
   $(".refugees").hide();
@@ -78,7 +75,6 @@ function loadHomelessScreen() {
 }
 
 function loadRefugeesScreen() {
-  $(".backButton").show();
   $(".foodPantries").hide();
   $(".environmental").hide();
   $(".homeless").hide();
@@ -87,7 +83,6 @@ function loadRefugeesScreen() {
 }
 
 function loadAnimalSheltersScreen() {
-  $(".backButton").show();
   $(".foodPantries").hide();
   $(".environmental").hide();
   $(".homeless").hide();
@@ -96,7 +91,6 @@ function loadAnimalSheltersScreen() {
 }
 
 function loadElderlyScreen() {
-  $(".backButton").show();
   $(".foodPantries").hide();
   $(".environmental").hide();
   $(".homeless").hide();

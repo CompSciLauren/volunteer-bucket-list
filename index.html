@@ -24,7 +24,6 @@
       <div class="col-3 col-s-3 menu">
         <nav>
           <ul>
-            <button class="backButton">Back</button>
             <li class="foodPantries">Food Pantries</li>
             <li class="environmental">Environmental</li>
             <li class="homeless">Homeless</li>
@@ -57,6 +56,7 @@
     </div>
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
     <script>
+      let nightMode = true;
       // This example adds a search box to a map, using the Google Place Autocomplete
       // feature. People can enter geographical searches. The search box will return a
       // pick list containing a mix of places and predicted search terms.
@@ -268,6 +268,11 @@
       async
       defer
     ></script>
+    <!--settings screen-->
+    <div id="settingsScreenOptions" class="themed">
+      <label for="dayNightMode">Day/Night Mode:</label>
+      <button onclick="switchDayNightMode()">Switch Mode</button>
+    </div>
     <!--footer-->
     <div class="col-3 col-s-3 footer">
       <ul>
