@@ -12,11 +12,34 @@ $(document).ready(function() {
   });
 });
 
+function switchDayNightMode() {
+  if (nightMode) {
+    $("body").css("background-color", "#221853");
+    $("label").css("color", "white");
+    nightMode = false;
+  } else {
+    $("body").css("background-color", "white");
+    $("label").css("color", "black");
+    nightMode = true;
+  }
+}
+
+// main load functions for each screen on navbar
 function loadHomeScreen() {
   location.reload();
+  // $("#settingsScreenOptions").hide();
+
+  // $(".foodPantries").show();
+  // $(".environmental").show();
+  // $(".homeless").show();
+  // $(".refugees").show();
+  // $(".elderly").show();
+  // $(".animalShelters").show();
 }
 
 function loadFavoritesScreen() {
+  $("#settingsScreenOptions").hide();
+
   $(".foodPantries").hide();
   $(".environmental").hide();
   $(".homeless").hide();
@@ -26,6 +49,8 @@ function loadFavoritesScreen() {
 }
 
 function loadSettingsScreen() {
+  $("#settingsScreenOptions").show();
+
   $(".foodPantries").hide();
   $(".environmental").hide();
   $(".homeless").hide();

@@ -19,6 +19,12 @@ $(document).ready(function() {
     $googlemap.googlemap("open");
   });
 
+  $("#settingsScreenOptions").hide();
+
+  $("#settingsScreenOptions").click(function() {
+    loadSettingsScreenOptions();
+  });
+
   $(".foodPantries").click(function() {
     loadFoodPantriesScreen();
   });
