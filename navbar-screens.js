@@ -39,6 +39,7 @@ function loadHomeScreen() {
 
 function loadFavoritesScreen() {
   $("#settingsScreenOptions").hide();
+  $("#favoritesScreenOptions").show();
 
   $(".foodPantries").hide();
   $(".environmental").hide();
@@ -50,6 +51,7 @@ function loadFavoritesScreen() {
 
 function loadSettingsScreen() {
   $("#settingsScreenOptions").show();
+  $("#favoritesScreenOptions").hide();
 
   $(".foodPantries").hide();
   $(".environmental").hide();
