@@ -5,8 +5,8 @@ $(document).ready(function() {
     location.reload();
   });
 
-  $(".edtechnology").click(function() {
-    loadEdtechnologyScreen();
+  $(".foodPantries").click(function() {
+    loadFoodPantriesScreen();
   });
 
   $(".environmental").click(function() {
@@ -21,72 +21,65 @@ $(document).ready(function() {
     loadRefugeesScreen();
   });
 
-  $(".childrenAndYoungPeople").click(function() {
-    loadChildrenAndYoungPeopleScreen();
+  $(".animalshelters").click(function() {
+    loadAnimalSheltersScreen();
   });
 
   $(".elderly").click(function() {
     loadElderlyScreen();
   });
-
-  function loadEdtechnologyScreen() {
-    $(".searchStateAndLocationUI").css("visibility", "hidden");
-    $(".backButton").show();
-    $(".environmental").hide();
-    $(".homeless").hide();
-    $(".refugees").hide();
-    $(".childrenAndYoungPeople").hide();
-    $(".elderly").hide();
-  }
-
-  function loadEnvironmentalScreen() {
-    $(".searchStateAndLocationUI").css("visibility", "hidden");
-    $(".backButton").show();
-    $(".edtechnology").hide();
-    $(".homeless").hide();
-    $(".refugees").hide();
-    $(".childrenAndYoungPeople").hide();
-    $(".elderly").hide();
-  }
-
-  function loadHomelessScreen() {
-    alert("entered!");
-    $(".searchStateAndLocationUI").css("visibility", "hidden");
-    $(".backButton").show();
-    $(".edtechnology").hide();
-    $(".environmental").hide();
-    $(".refugees").hide();
-    $(".childrenAndYoungPeople").hide();
-    $(".elderly").hide();
-  }
-
-  function loadRefugeesScreen() {
-    $(".searchStateAndLocationUI").css("visibility", "hidden");
-    $(".backButton").show();
-    $(".edtechnology").hide();
-    $(".environmental").hide();
-    $(".homeless").hide();
-    $(".childrenAndYoungPeople").hide();
-    $(".elderly").hide();
-  }
-
-  function loadChildrenAndYoungPeopleScreen() {
-    $(".searchStateAndLocationUI").css("visibility", "hidden");
-    $(".backButton").show();
-    $(".edtechnology").hide();
-    $(".environmental").hide();
-    $(".homeless").hide();
-    $(".refugees").hide();
-    $(".elderly").hide();
-  }
-
-  function loadElderlyScreen() {
-    $(".searchStateAndLocationUI").css("visibility", "hidden");
-    $(".backButton").show();
-    $(".edtechnology").hide();
-    $(".environmental").hide();
-    $(".homeless").hide();
-    $(".refugees").hide();
-    $(".childrenAndYoungPeople").hide();
-  }
 });
+
+function loadFoodPantriesScreen() {
+  $(".backButton").show();
+  $(".environmental").hide();
+  $(".homeless").hide();
+  $(".refugees").hide();
+  $(".animalShelters").hide();
+  $(".elderly").hide();
+}
+
+function loadEnvironmentalScreen() {
+  $(".backButton").show();
+  $(".foodPantries").hide();
+  $(".homeless").hide();
+  $(".refugees").hide();
+  $(".animalShelters").hide();
+  $(".elderly").hide();
+}
+
+function loadHomelessScreen() {
+  $(".backButton").show();
+  $(".foodPantries").hide();
+  $(".environmental").hide();
+  $(".refugees").hide();
+  $(".animalShelters").hide();
+  $(".elderly").hide();
+}
+
+function loadRefugeesScreen() {
+  $(".backButton").show();
+  $(".foodPantries").hide();
+  $(".environmental").hide();
+  $(".homeless").hide();
+  $(".animalShelters").hide();
+  $(".elderly").hide();
+}
+
+function loadAnimalSheltersScreen() {
+  $(".backButton").show();
+  $(".foodPantries").hide();
+  $(".environmental").hide();
+  $(".homeless").hide();
+  $(".refugees").hide();
+  $(".elderly").hide();
+}
+
+function loadElderlyScreen() {
+  $(".backButton").show();
+  $(".foodPantries").hide();
+  $(".environmental").hide();
+  $(".homeless").hide();
+  $(".refugees").hide();
+  $(".animalShelters").hide();
+}
