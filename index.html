@@ -55,7 +55,7 @@
         <ul id="ul"></ul>
       </div>
     </div>
-
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
     <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
       // feature. People can enter geographical searches. The search box will return a
@@ -65,6 +65,27 @@
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
+      var opportunities = [];
+      var checkedValues = null;
+      var checkedNames = null;
+      var favorites = [];
+
+      // for the firebase ids
+      var favoriteId = 0;
+
+      // Setting up the Firebase database server
+      var config = {
+        apiKey: "AIzaSyA2OBmgrJhF3TXTuArFW53PJZnT3_hQtpM",
+        authDomain: "volunteerbucketl-1549684675882.firebaseapp.com",
+        databaseURL: "https://volunteerbucketl-1549684675882.firebaseio.com/",
+        storageBucket: "bucket.appspot.com"
+      };
+      firebase.initializeApp(config);
+
+      // Get a reference to the database service
+      var database = firebase.database();
+
+      // start of everything
       function initAutocomplete() {
         var address = document.getElementById("addressState").value;
         var geocoder = new google.maps.Geocoder();
@@ -93,7 +114,6 @@
             });
 
             var storeMarkers = [];
-            var opportunities = [];
             var markers = [];
             // Listen for the event fired when the user selects a prediction and retrieve
             // more details for that place.
@@ -142,17 +162,21 @@
                 createA.setAttribute("href", "./googlemap.html");
 
                 var checkbox = document.createElement("input");
+                checkbox.setAttribute("class", "checkers");
+
                 var text = document.getElementById("container");
 
                 for (let i = 0; i < opportunities.length; i++) {
                   checkbox.type = "checkbox";
                   checkbox.value = i;
+                  checkbox.name = opportunities[i].name;
                   createA.innerText = opportunities[i].name;
                 }
                 li.appendChild(checkbox);
                 li.appendChild(createA);
                 ul.appendChild(li);
                 ul.appendChild(createA);
+
                 console.log(checkbox);
 
                 let category = $(".controls").val();
@@ -182,6 +206,12 @@
                 }
               });
 
+              var divC = document.getElementById("container");
+              var btn1 = document.createElement("button");
+              btn1.innerHTML = "Add to Favorites";
+              btn1.setAttribute("onclick", "runCheckers()");
+              divC.appendChild(btn1);
+
               console.log(opportunities);
             });
           }
@@ -196,6 +226,42 @@
       }
 
       function clearLocationItems() {}
+
+      function runCheckers() {
+        var inputElements = document.getElementsByClassName("checkers");
+
+        for (var i = 0; inputElements[i]; i++) {
+          if (inputElements[i].checked) {
+            checkedNames = inputElements[i].name;
+            checkedValues = inputElements[i].value;
+            for (var j = 0; j < opportunities.length; j++) {
+              if ((checkedNames = opportunities[i].name)) {
+                console.log(opportunities[i].name);
+                console.log(opportunities[i].latitude);
+                console.log(opportunities[i].longitude);
+                //var userId = firebase.auth().currentUser.uid;
+                firebase
+                  .database()
+                  .ref("favorites/" + favoriteId)
+                  .set({
+                    latitude: opportunities[i].latitude,
+                    longitude: opportunities[i].longitude,
+                    name: opportunities[i].name
+                  });
+              }
+              break;
+            }
+            break;
+          }
+        }
+
+        favoriteId++;
+
+        console.log(checkedNames);
+        console.log(checkedValues);
+      }
+
+      //function compareThem() {}
     </script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2OBmgrJhF3TXTuArFW53PJZnT3_hQtpM&libraries=places&callback=initAutocomplete"
